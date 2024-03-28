@@ -1,0 +1,39 @@
+{
+  "name": "@cityssm/web-browser-info",
+  "version": "0.1.0",
+  "description": "Retrieves details about installed web browsers.",
+  "type": "module",
+  "exports": "./index.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "test": "mocha --timeout 120000 --exit",
+    "coverage": "c8 --reporter=lcov --reporter=text --reporter=text-summary mocha --timeout 120000 --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cityssm/node-web-browser-info.git"
+  },
+  "keywords": [
+    "web-browser",
+    "browser",
+    "chrome",
+    "firefox",
+    "edge"
+  ],
+  "author": "The Corporation of the City of Sault Ste. Marie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cityssm/node-web-browser-info/issues"
+  },
+  "homepage": "https://github.com/cityssm/node-web-browser-info#readme",
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.30",
+    "eslint-config-cityssm": "^1.4.3"
+  },
+  "dependencies": {
+    "@httptoolkit/browser-launcher": "^2.2.0"
+  }
+}
