@@ -1,5 +1,11 @@
 # Web Browser Info
 
+[![npm (scoped)](https://img.shields.io/npm/v/@cityssm/web-browser-info)](https://www.npmjs.com/package/@cityssm/web-browser-info)
+[![DeepSource](https://app.deepsource.com/gh/cityssm/node-web-browser-info.svg/?label=active+issues&show_trend=true&token=UihEHJULs-0PJTFYNmxfmjj-)](https://app.deepsource.com/gh/cityssm/node-web-browser-info/)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2afbcf22ea3328e30fec/maintainability)](https://codeclimate.com/github/cityssm/node-web-browser-info/maintainability)
+[![codecov](https://codecov.io/gh/cityssm/node-web-browser-info/graph/badge.svg?token=ZA04Y3J8R9)](https://codecov.io/gh/cityssm/node-web-browser-info)
+[![Coverage Testing](https://github.com/cityssm/node-web-browser-info/actions/workflows/coverage.yml/badge.svg)](https://github.com/cityssm/node-web-browser-info/actions/workflows/coverage.yml)
+
 Retrieves details about installed web browsers,
 using the fantastic [@httptoolkit/browser-launcher](https://www.npmjs.com/package/@httptoolkit/browser-launcher) package.
 
