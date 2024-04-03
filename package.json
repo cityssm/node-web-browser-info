@@ -34,6 +34,6 @@
     "eslint-config-cityssm": "^1.4.3"
   },
   "dependencies": {
-    "@httptoolkit/browser-launcher": "^2.2.0"
+    "@httptoolkit/browser-launcher": "^2.2.1"
   }
 }
