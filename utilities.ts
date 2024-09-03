@@ -5,8 +5,8 @@ export interface ApplicationVersion {
 
 /**
  * Extracts the major and minor version numbers fron a version string.
- * @param {string} versionString - A version string.
- * @returns {ApplicationVersion} - The major and minor version numbers, if available.
+ * @param versionString - A version string.
+ * @returns - The major and minor version numbers, if available.
  */
 export function parseVersion(
   versionString: string

@@ -1,6 +1,3 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
-/* eslint-disable @typescript-eslint/indent */
-
 import browserLauncher from '@httptoolkit/browser-launcher'
 
 import { type ApplicationVersion, parseVersion } from './utilities.js'
@@ -58,15 +55,15 @@ async function _loadInstalledWebBrowsers(): Promise<InstalledWebBrowser[]> {
 
 /**
  * Retrieves a list of installed web browsers that optionally match the given types.
- * @param {string | string[]} webBrowserTypes - An optional web browser type or list of web browser types to filter by.
- * @param {number} minimumMajorVersion - An optional minimum major version number.
- * @returns {Promise<InstalledWebBrowser[]>} - An array of installed web browsers.
+ * @param webBrowserTypes - An optional web browser type or list of web browser types to filter by.
+ * @param minimumMajorVersion - An optional minimum major version number.
+ * @returns - An array of installed web browsers.
  */
 export async function getInstalledWebBrowsers(
   webBrowserTypes?:
     | (typeof possibleWebBrowserTypes)[number]
     | Array<(typeof possibleWebBrowserTypes)[number]>,
-  minimumMajorVersion: number = 0
+  minimumMajorVersion = 0
 ): Promise<InstalledWebBrowser[]> {
   const browsers = await _loadInstalledWebBrowsers()
 
