@@ -4,14 +4,14 @@ export interface ApplicationVersion {
 }
 
 /**
- * Extracts the major and minor version numbers fron a version string.
+ * Extracts the major and minor version numbers from a version string.
  * @param versionString - A version string.
  * @returns - The major and minor version numbers, if available.
  */
 export function parseVersion(
-  versionString: string
+  versionString = ''
 ): ApplicationVersion | undefined {
-  const versionPieces = (versionString ?? '').split('.')
+  const versionPieces = versionString.split('.')
 
   return {
     majorVersion:

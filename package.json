@@ -8,8 +8,8 @@
     "node": ">=18.0.0"
   },
   "scripts": {
-    "test": "mocha --timeout 120000 --exit",
-    "coverage": "c8 --reporter=lcov --reporter=text --reporter=text-summary mocha --timeout 120000 --exit"
+    "test": "node --test",
+    "coverage": "c8 --reporter=lcov --reporter=text --reporter=text-summary node --test"
   },
   "repository": {
     "type": "git",
@@ -29,9 +29,8 @@
   },
   "homepage": "https://github.com/cityssm/node-web-browser-info#readme",
   "devDependencies": {
-    "@types/mocha": "^10.0.7",
-    "@types/node": "^22.5.2",
-    "eslint-config-cityssm": "^7.0.0",
+    "@types/node": "^22.7.4",
+    "eslint-config-cityssm": "^10.1.1",
     "prettier-config-cityssm": "^1.0.0"
   },
   "dependencies": {

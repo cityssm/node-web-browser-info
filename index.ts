@@ -4,9 +4,10 @@ import { type ApplicationVersion, parseVersion } from './utilities.js'
 
 export type InstalledWebBrowser = browserLauncher.Browser & ApplicationVersion
 
+const installedWebBrowsersExpiryMillis = 5 * 60_000
+
 let installedWebBrowsers: InstalledWebBrowser[] = []
 let installedWebBrowsersMillis = 0
-const installedWebBrowsersExpiryMillis = 5 * 60_000
 
 export const possibleWebBrowserTypes = [
   'chrome',
@@ -53,6 +54,7 @@ async function _loadInstalledWebBrowsers(): Promise<InstalledWebBrowser[]> {
   })
 }
 
+// eslint-disable-next-line write-good-comments/write-good-comments
 /**
  * Retrieves a list of installed web browsers that optionally match the given types.
  * @param webBrowserTypes - An optional web browser type or list of web browser types to filter by.

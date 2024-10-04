@@ -1,8 +1,8 @@
 import browserLauncher from '@httptoolkit/browser-launcher';
 import { parseVersion } from './utilities.js';
+const installedWebBrowsersExpiryMillis = 5 * 60_000;
 let installedWebBrowsers = [];
 let installedWebBrowsersMillis = 0;
-const installedWebBrowsersExpiryMillis = 5 * 60_000;
 export const possibleWebBrowserTypes = [
     'chrome',
     'chromium',
