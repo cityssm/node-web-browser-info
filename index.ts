@@ -38,6 +38,7 @@ async function _loadInstalledWebBrowsers(): Promise<InstalledWebBrowser[]> {
     return installedWebBrowsers
   }
 
+  // eslint-disable-next-line promise/avoid-new
   return await new Promise((resolve) => {
     browserLauncher.detect((browsers) => {
       const installedWebBrowsersTemp: InstalledWebBrowser[] = []
@@ -56,7 +57,6 @@ async function _loadInstalledWebBrowsers(): Promise<InstalledWebBrowser[]> {
   })
 }
 
-// eslint-disable-next-line write-good-comments/write-good-comments
 /**
  * Retrieves a list of installed web browsers that optionally match the given types.
  * @param webBrowserTypes - An optional web browser type or list of web browser types to filter by.
