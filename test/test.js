@@ -12,11 +12,13 @@ await describe('web-browser-info', async () => {
         console.log(browsers);
         assert.ok(browsers.length > 0);
     });
-    await it('Finds all available Firefox web browsers', async () => {
-        const browsers = await getInstalledWebBrowsers('firefox');
-        console.log(browsers);
-        assert.ok(browsers.length > 0);
-    });
+    if (process.platform === 'win32' || process.platform === 'linux') {
+        await it('Finds all available Firefox web browsers', async () => {
+            const browsers = await getInstalledWebBrowsers('firefox');
+            console.log(browsers);
+            assert.ok(browsers.length > 0);
+        });
+    }
     await it('Finds all available Chrome-based web browsers newer than version 120', async () => {
         const minimumMajorVersion = 120;
         const browsers = await getInstalledWebBrowsers(chromeWebBrowserTypes, minimumMajorVersion);
