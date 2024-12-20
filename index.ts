@@ -1,10 +1,12 @@
+import { minutesToMillis } from '@cityssm/to-millis'
 import browserLauncher from '@httptoolkit/browser-launcher'
 
 import { type ApplicationVersion, parseVersion } from './utilities.js'
 
 export type InstalledWebBrowser = browserLauncher.Browser & ApplicationVersion
 
-const installedWebBrowsersExpiryMillis = 5 * 60_000
+// eslint-disable-next-line @typescript-eslint/no-magic-numbers
+const installedWebBrowsersExpiryMillis = minutesToMillis(5)
 
 let installedWebBrowsers: InstalledWebBrowser[] = []
 let installedWebBrowsersMillis = 0
@@ -76,10 +78,9 @@ export async function getInstalledWebBrowsers(
   const webBrowserTypesToSearch =
     typeof webBrowserTypes === 'string' ? [webBrowserTypes] : webBrowserTypes
 
-  return browsers.filter((possibleBrowser) => {
-    return (
+  return browsers.filter(
+    (possibleBrowser) =>
       (webBrowserTypesToSearch as string[]).includes(possibleBrowser.type) &&
       (possibleBrowser.majorVersion ?? 0) >= minimumMajorVersion
-    )
-  })
+  )
 }

@@ -1,6 +1,7 @@
+import { minutesToMillis } from '@cityssm/to-millis';
 import browserLauncher from '@httptoolkit/browser-launcher';
 import { parseVersion } from './utilities.js';
-const installedWebBrowsersExpiryMillis = 5 * 60_000;
+const installedWebBrowsersExpiryMillis = minutesToMillis(5);
 let installedWebBrowsers = [];
 let installedWebBrowsersMillis = 0;
 export const possibleWebBrowserTypes = [
@@ -43,8 +44,6 @@ export async function getInstalledWebBrowsers(webBrowserTypes, minimumMajorVersi
         return browsers;
     }
     const webBrowserTypesToSearch = typeof webBrowserTypes === 'string' ? [webBrowserTypes] : webBrowserTypes;
-    return browsers.filter((possibleBrowser) => {
-        return (webBrowserTypesToSearch.includes(possibleBrowser.type) &&
-            (possibleBrowser.majorVersion ?? 0) >= minimumMajorVersion);
-    });
+    return browsers.filter((possibleBrowser) => webBrowserTypesToSearch.includes(possibleBrowser.type) &&
+        (possibleBrowser.majorVersion ?? 0) >= minimumMajorVersion);
 }
