@@ -30,7 +30,7 @@
   "homepage": "https://github.com/cityssm/node-web-browser-info#readme",
   "devDependencies": {
     "@types/node": "^22.10.2",
-    "eslint-config-cityssm": "^18.1.1",
+    "eslint-config-cityssm": "^19.0.0",
     "prettier-config-cityssm": "^1.0.0"
   },
   "dependencies": {
