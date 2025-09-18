@@ -1,3 +1,6 @@
+// eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
+/* eslint-disable no-console */
+
 import assert from 'node:assert'
 import { describe, it } from 'node:test'
 

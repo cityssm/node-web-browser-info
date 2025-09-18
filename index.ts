@@ -3,7 +3,7 @@ import browserLauncher from '@httptoolkit/browser-launcher'
 
 import { type ApplicationVersion, parseVersion } from './utilities.js'
 
-export type InstalledWebBrowser = browserLauncher.Browser & ApplicationVersion
+export type InstalledWebBrowser = ApplicationVersion & browserLauncher.Browser
 
 // eslint-disable-next-line @typescript-eslint/no-magic-numbers
 const installedWebBrowsersExpiryMillis = minutesToMillis(5)
