@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@cityssm/to-millis": "^1.0.1",
-    "@httptoolkit/browser-launcher": "^2.3.0"
+    "@httptoolkit/browser-launcher": "^3.0.1"
   },
   "devDependencies": {
     "@types/node": "^24.5.2",
