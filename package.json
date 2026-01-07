@@ -27,11 +27,11 @@
   },
   "dependencies": {
     "@cityssm/to-millis": "^1.0.1",
-    "@httptoolkit/browser-launcher": "^2.3.0"
+    "@httptoolkit/browser-launcher": "^3.0.1"
   },
   "devDependencies": {
-    "@types/node": "^24.5.2",
-    "eslint-config-cityssm": "^29.1.1",
+    "@types/node": "^25.0.3",
+    "eslint-config-cityssm": "^36.1.0",
     "prettier-config-cityssm": "^1.0.0"
   },
   "engines": {

@@ -1,9 +1,9 @@
 import { minutesToMillis } from '@cityssm/to-millis'
-import browserLauncher from '@httptoolkit/browser-launcher'
+import { type BrowserInfo, detectBrowsers } from '@httptoolkit/browser-launcher'
 
 import { type ApplicationVersion, parseVersion } from './utilities.js'
 
-export type InstalledWebBrowser = ApplicationVersion & browserLauncher.Browser
+export type InstalledWebBrowser = ApplicationVersion & BrowserInfo
 
 // eslint-disable-next-line @typescript-eslint/no-magic-numbers
 const installedWebBrowsersExpiryMillis = minutesToMillis(5)
@@ -38,23 +38,20 @@ async function _loadInstalledWebBrowsers(): Promise<InstalledWebBrowser[]> {
     return installedWebBrowsers
   }
 
-  // eslint-disable-next-line promise/avoid-new
-  return await new Promise((resolve) => {
-    browserLauncher.detect((browsers) => {
-      const installedWebBrowsersTemp: InstalledWebBrowser[] = []
+  const browsers = await detectBrowsers()
 
-      for (const browser of browsers) {
-        installedWebBrowsersTemp.push(
-          Object.assign(browser, parseVersion(browser.version))
-        )
-      }
+  const installedWebBrowsersTemp: InstalledWebBrowser[] = []
 
-      installedWebBrowsers = installedWebBrowsersTemp
-      installedWebBrowsersMillis = Date.now()
+  for (const browser of browsers) {
+    installedWebBrowsersTemp.push(
+      Object.assign(browser, parseVersion(browser.version))
+    )
+  }
 
-      resolve(installedWebBrowsersTemp)
-    })
-  })
+  installedWebBrowsers = installedWebBrowsersTemp
+  installedWebBrowsersMillis = Date.now()
+
+  return installedWebBrowsersTemp
 }
 
 /**

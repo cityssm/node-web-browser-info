@@ -1,5 +1,5 @@
 import { minutesToMillis } from '@cityssm/to-millis';
-import browserLauncher from '@httptoolkit/browser-launcher';
+import { detectBrowsers } from '@httptoolkit/browser-launcher';
 import { parseVersion } from './utilities.js';
 const installedWebBrowsersExpiryMillis = minutesToMillis(5);
 let installedWebBrowsers = [];
@@ -26,17 +26,14 @@ async function _loadInstalledWebBrowsers() {
         installedWebBrowsers.length > 0) {
         return installedWebBrowsers;
     }
-    return await new Promise((resolve) => {
-        browserLauncher.detect((browsers) => {
-            const installedWebBrowsersTemp = [];
-            for (const browser of browsers) {
-                installedWebBrowsersTemp.push(Object.assign(browser, parseVersion(browser.version)));
-            }
-            installedWebBrowsers = installedWebBrowsersTemp;
-            installedWebBrowsersMillis = Date.now();
-            resolve(installedWebBrowsersTemp);
-        });
-    });
+    const browsers = await detectBrowsers();
+    const installedWebBrowsersTemp = [];
+    for (const browser of browsers) {
+        installedWebBrowsersTemp.push(Object.assign(browser, parseVersion(browser.version)));
+    }
+    installedWebBrowsers = installedWebBrowsersTemp;
+    installedWebBrowsersMillis = Date.now();
+    return installedWebBrowsersTemp;
 }
 export async function getInstalledWebBrowsers(webBrowserTypes, minimumMajorVersion = 0) {
     const browsers = await _loadInstalledWebBrowsers();
