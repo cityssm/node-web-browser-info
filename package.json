@@ -1,6 +1,6 @@
 {
   "name": "@cityssm/web-browser-info",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Retrieves details about installed web browsers.",
   "keywords": [
     "web-browser",
