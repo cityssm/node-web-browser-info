@@ -1,6 +1,7 @@
 import { minutesToMillis } from '@cityssm/to-millis';
 import { detectBrowsers } from '@httptoolkit/browser-launcher';
 import { parseVersion } from './utilities.js';
+// eslint-disable-next-line @typescript-eslint/no-magic-numbers
 const installedWebBrowsersExpiryMillis = minutesToMillis(5);
 let installedWebBrowsers = [];
 let installedWebBrowsersMillis = 0;
@@ -31,10 +32,18 @@ async function _loadInstalledWebBrowsers() {
     for (const browser of browsers) {
         installedWebBrowsersTemp.push(Object.assign(browser, parseVersion(browser.version)));
     }
+    // eslint-disable-next-line require-atomic-updates
     installedWebBrowsers = installedWebBrowsersTemp;
+    // eslint-disable-next-line require-atomic-updates
     installedWebBrowsersMillis = Date.now();
     return installedWebBrowsersTemp;
 }
+/**
+ * Retrieves a list of installed web browsers that optionally match the given types.
+ * @param webBrowserTypes - An optional web browser type or list of web browser types to filter by.
+ * @param minimumMajorVersion - An optional minimum major version number.
+ * @returns - An array of installed web browsers.
+ */
 export async function getInstalledWebBrowsers(webBrowserTypes, minimumMajorVersion = 0) {
     const browsers = await _loadInstalledWebBrowsers();
     if (webBrowserTypes === undefined) {

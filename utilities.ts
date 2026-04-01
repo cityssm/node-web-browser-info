@@ -15,8 +15,8 @@ export function parseVersion(
 
   return {
     majorVersion:
-      versionPieces.length > 0 ? Number.parseInt(versionPieces[0]) : undefined,
+      versionPieces.length > 0 ? Number.parseInt(versionPieces[0], 10) : undefined,
     minorVersion:
-      versionPieces.length > 1 ? Number.parseInt(versionPieces[1]) : undefined
+      versionPieces.length > 1 ? Number.parseInt(versionPieces[1], 10) : undefined
   }
 }

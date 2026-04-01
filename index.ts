@@ -48,7 +48,10 @@ async function _loadInstalledWebBrowsers(): Promise<InstalledWebBrowser[]> {
     )
   }
 
+  // eslint-disable-next-line require-atomic-updates
   installedWebBrowsers = installedWebBrowsersTemp
+
+  // eslint-disable-next-line require-atomic-updates
   installedWebBrowsersMillis = Date.now()
 
   return installedWebBrowsersTemp
