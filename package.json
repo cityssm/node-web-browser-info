@@ -30,9 +30,9 @@
     "@httptoolkit/browser-launcher": "^3.0.1"
   },
   "devDependencies": {
-    "@types/node": "^25.0.3",
-    "eslint-config-cityssm": "^36.1.0",
-    "prettier-config-cityssm": "^1.0.0"
+    "@types/node": "^25.5.0",
+    "eslint-config-cityssm": "^39.0.0",
+    "prettier-config-cityssm": "^2.1.1"
   },
   "engines": {
     "node": ">=18.0.0"
