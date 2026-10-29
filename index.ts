@@ -1,6 +1,9 @@
+/* eslint-disable unicorn/no-top-level-assignment-in-function */
+
 import { minutesToMillis } from '@cityssm/to-millis'
 import { type BrowserInfo, detectBrowsers } from '@httptoolkit/browser-launcher'
 
+// eslint-disable-next-line unicorn/name-replacements
 import { type ApplicationVersion, parseVersion } from './utilities.js'
 
 export type InstalledWebBrowser = ApplicationVersion & BrowserInfo
@@ -40,13 +43,10 @@ async function _loadInstalledWebBrowsers(): Promise<InstalledWebBrowser[]> {
 
   const browsers = await detectBrowsers()
 
-  const installedWebBrowsersTemp: InstalledWebBrowser[] = []
-
-  for (const browser of browsers) {
-    installedWebBrowsersTemp.push(
-      Object.assign(browser, parseVersion(browser.version))
-    )
-  }
+  const installedWebBrowsersTemp: InstalledWebBrowser[] = Array.from(
+    browsers,
+    (browser) => Object.assign(browser, parseVersion(browser.version))
+  )
 
   // eslint-disable-next-line require-atomic-updates
   installedWebBrowsers = installedWebBrowsersTemp

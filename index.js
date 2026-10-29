@@ -1,5 +1,7 @@
+/* eslint-disable unicorn/no-top-level-assignment-in-function */
 import { minutesToMillis } from '@cityssm/to-millis';
 import { detectBrowsers } from '@httptoolkit/browser-launcher';
+// eslint-disable-next-line unicorn/name-replacements
 import { parseVersion } from './utilities.js';
 // eslint-disable-next-line @typescript-eslint/no-magic-numbers
 const installedWebBrowsersExpiryMillis = minutesToMillis(5);
@@ -28,10 +30,7 @@ async function _loadInstalledWebBrowsers() {
         return installedWebBrowsers;
     }
     const browsers = await detectBrowsers();
-    const installedWebBrowsersTemp = [];
-    for (const browser of browsers) {
-        installedWebBrowsersTemp.push(Object.assign(browser, parseVersion(browser.version)));
-    }
+    const installedWebBrowsersTemp = Array.from(browsers, (browser) => Object.assign(browser, parseVersion(browser.version)));
     // eslint-disable-next-line require-atomic-updates
     installedWebBrowsers = installedWebBrowsersTemp;
     // eslint-disable-next-line require-atomic-updates

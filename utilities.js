@@ -6,7 +6,7 @@
 export function parseVersion(versionString = '') {
     const versionPieces = versionString.split('.');
     return {
-        majorVersion: versionPieces.length > 0 ? Number.parseInt(versionPieces[0], 10) : undefined,
-        minorVersion: versionPieces.length > 1 ? Number.parseInt(versionPieces[1], 10) : undefined
+        majorVersion: versionPieces.length > 0 ? Math.trunc(Number(versionPieces[0])) : undefined,
+        minorVersion: versionPieces.length > 1 ? Math.trunc(Number(versionPieces[1])) : undefined
     };
 }

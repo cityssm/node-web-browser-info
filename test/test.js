@@ -1,4 +1,4 @@
-// eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
+/* eslint-disable node-test/no-async-describe */
 /* eslint-disable no-console */
 import assert from 'node:assert';
 import { describe, it } from 'node:test';
@@ -15,6 +15,7 @@ await describe('web-browser-info', async () => {
         assert.ok(browsers.length > 0);
     });
     if (process.platform === 'win32' || process.platform === 'linux') {
+        // eslint-disable-next-line node-test/no-conditional-tests
         await it('Finds all available Firefox web browsers', async () => {
             const browsers = await getInstalledWebBrowsers('firefox');
             console.log(browsers);
@@ -27,6 +28,7 @@ await describe('web-browser-info', async () => {
         console.log(browsers);
         assert.ok(browsers.length > 0);
         for (const chromeBrowser of browsers) {
+            // eslint-disable-next-line node-test/no-conditional-assertion
             assert.ok((chromeBrowser.majorVersion ?? 0) >= minimumMajorVersion);
         }
     });

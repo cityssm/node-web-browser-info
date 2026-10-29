@@ -1,3 +1,4 @@
+// eslint-disable-next-line unicorn/name-replacements
 export interface ApplicationVersion {
   majorVersion: number | undefined
   minorVersion: number | undefined
@@ -15,8 +16,8 @@ export function parseVersion(
 
   return {
     majorVersion:
-      versionPieces.length > 0 ? Number.parseInt(versionPieces[0], 10) : undefined,
+      versionPieces.length > 0 ? Math.trunc(Number(versionPieces[0])) : undefined,
     minorVersion:
-      versionPieces.length > 1 ? Number.parseInt(versionPieces[1], 10) : undefined
+      versionPieces.length > 1 ? Math.trunc(Number(versionPieces[1])) : undefined
   }
 }
