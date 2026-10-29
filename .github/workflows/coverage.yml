@@ -56,7 +56,9 @@ jobs:
           node-version: '24'
 
       - name: Install Chrome via Homebrew
-        run: brew install --cask google-chrome
+        run: |
+          brew update
+          brew install --cask google-chrome
 
       - name: Install Firefox via Homebrew
         run: brew install --cask firefox
