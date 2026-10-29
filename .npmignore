@@ -2,7 +2,6 @@
 coverage/
 test/
 
-.codeclimate.yml
 .deepsource.toml
 .eslintignore
 .gitignore
