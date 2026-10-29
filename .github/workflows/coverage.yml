@@ -55,8 +55,15 @@ jobs:
         with:
           node-version: '24'
 
-      - uses: browser-actions/setup-chrome@v2
-      - uses: browser-actions/setup-firefox@v1
+      - name: Install Chrome via Homebrew
+        run: |
+          brew update
+          brew install --cask google-chrome
+
+      - name: Install Firefox via Homebrew
+        run: |
+          brew update
+          brew install --cask firefox
 
       - name: Install Application
         run: |
